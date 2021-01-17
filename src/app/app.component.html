@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="my-2">Design Patterns: Strategy pattern example</h1>
+  <div>
+    <div class="form-group col-md-10 offset-md-1 py-2">
+      <label for="number">Inrodueix un número per calcular el factorial:</label>
+      <input class="form-control" type="number" placeholder="Factorial de..." #number id="number">
+    </div>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary mr-4"
+        (click)="factorialStrategy = factorialStrategyRecursion; factorial(number.value)">Strategy 1</button>
+      <button type="button" class="btn btn-primary mr-4"
+        (click)="factorialStrategy = factorialStrategyLoop; factorial(number.value)">Strategy 2</button>
+      <button type="button" class="btn btn-primary mr-4"
+        (click)="factorialStrategy = factorialStrategyArrayReduce; factorial(number.value)">Strategy 3</button>
+      <button type="button" class="btn btn-primary"
+        (click)="factorialStrategy = factorialStrategyMathjs; factorial(number.value)">Strategy 4</button>
+    </div>
+  </div>
+  <div *ngIf="strategy && num && result">
+    <div class="col-md-10 offset-md-1 py-2">Strategy used: {{strategy}}</div>
+    <div class="col-md-10 offset-md-1">Result: {{num}}! = {{result}}</div>
+  </div>
+</div>
