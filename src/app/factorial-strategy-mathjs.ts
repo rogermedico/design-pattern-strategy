@@ -6,7 +6,8 @@ export class FactorialStrategyMathjs implements FactorialStrategy {
   private _name: string = 'mathjs';
 
   factorial(num: number): number {
-    return factorial(num);
+    const n = Math.abs(Math.trunc(num));
+    return factorial(n);
   }
 
   get name() {
